@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="robots" content="noindex,nofollow">
+        <title>หจก.ณัฐดีไซน์ แอนด์ มีเดีย</title>
+        <style type="text/css" media="screen">
+            
+
+          .bgs {
+          position: fixed;
+          width: 100%;
+          height: 100vh;
+          z-index: 100;
+          background: url('../assets/images/S__39264260.jpg');
+          background-repeat: no-repeat;
+          background-size: cover;
+          -webkit-filter: blur(8px);
+          -moz-filter: blur(8px);
+          -ms-filter: blur(8px);
+          filter: blur(8px);
+          filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false);
+        }
+
+        input[type='text']{
+            border-color: #666666;
+        }
+        input[type='password']{
+            border-color: #666666;
+        }
+        </style>
+        <!--
+        <link rel="canonical" href="https://www.wrappixel.com/templates/elegant-admin-lite/" />
+        -->
+        <!-- Favicon icon -->
+        <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/logo-icon.png">
+        <!-- This page CSS -->
+        <!-- chartist CSS -->
+        <link href="../assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+        <!--c3 plugins CSS -->
+        <link href="../assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="dist/css/style.css" rel="stylesheet">
+        <!-- Dashboard 1 Page CSS -->
+        <link href="dist/css/pages/dashboard1.css" rel="stylesheet">
+    </head>
+ 
+    <body class="skin-default-dark fixed-layout ">
+       <div class="bgs">fsdgdfhdfhfhfjgjghj</div>
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <div class="preloader">
+            <div class="loader">
+                <div class="loader__figure"></div>
+                <p class="loader__label">Loading ...</p>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper">
+            
+        </div>
+
+
+        <!-- เอาคิวข้าว -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="popupaddwork" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="text-align: center;">
+                        <img src="../assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                        <b>Login</b>
+                    </h5>
+                        
+                    </div>
+                    <div class="modal-body">
+                        <label><b>Username</b></label>
+                        <input type="text" name="username" id="username" class="form-control">
+                        <label><b>Password</b></label>
+                        <input type="password" name="password" id="password"  class="form-control">
+                    </div>
+                    <div class="modal-footer" style="text-align: center;">
+                        <button type="button" class="btn btn-primary btn-block" id="btn-close-q" onclick="login()">
+                            <i class="fa fa-sign-in"></i> Login
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
+        <script src="dist/js/sweetalert2.js"></script>
+        <script src="../assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+        <!-- Bootstrap popper Core JavaScript -->
+        <script src="../assets/node_modules/popper/popper.min.js"></script>
+        <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- slimscrollbar scrollbar JavaScript -->
+        <script src="dist/js/perfect-scrollbar.jquery.min.js"></script>
+        <!--Wave Effects -->
+        <script src="dist/js/waves.js"></script>
+        <!--Menu sidebar -->
+        <script src="dist/js/sidebarmenu.js"></script>
+        <!--Custom JavaScript -->
+        <script src="dist/js/custom.min.js"></script>
+        <!-- ============================================================== -->
+        <!-- This page plugins -->
+        <!-- ============================================================== -->
+        <!--morris JavaScript -->
+        <script src="../assets/node_modules/raphael/raphael-min.js"></script>
+        <script src="../assets/node_modules/morrisjs/morris.min.js"></script>
+        <script src="../assets/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+        <!--c3 JavaScript -->
+        <script src="../assets/node_modules/d3/d3.min.js"></script>
+        <script src="../assets/node_modules/c3-master/c3.min.js"></script>
+        <!-- Chart JS -->
+        <script src="dist/js/dashboard1.js"></script>
+
+        <script type="text/javascript">
+            popupaddwork();
+            function popupaddwork() {
+                $("#popupaddwork").modal();
+            }
+
+            function popupdetail(){
+                $("#popupdetail").modal();
+            }
+            function confirmCancel() {
+                Swal.fire({
+                icon: 'warning',
+                title: 'ยืนยันรายการ...?',
+                text: 'คุณแน่ใจหรือไม่ที่จะดำเนินรายการต่อ...?',
+                showDenyButton: false,
+                showCancelButton: true,
+                confirmButtonText: `ตกลง`,
+                //denyButtonText: `Don't save`,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                //Swal.fire('Success!', '', 'success');
+                     window.location.reload();
+                }
+            });
+        }
+        function login(){
+            var username = $("#username").val();
+            var password = $("#password").val();
+            if(!username || !password){
+                 Swal.fire({
+                    icon: 'warning',
+                    title: 'กรอกข้อมูลไม่ครบ...?',
+                    //text: 'คุณแน่ใจหรือไม่ที่จะดำเนินรายการต่อ...?',
+                    showDenyButton: false,
+                    showCancelButton: false
+                });
+            } else {
+                window.location="http://localhost/nut-design/html/index.html";
+            }
+        }
+        </script>
+    </body>
+
+</html>

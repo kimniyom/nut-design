@@ -30,6 +30,12 @@
                 margin-top: 10px;
                 color: #1E90FF;
             }
+
+            #popupdetail .modal-dialog{
+                min-width: 99% !important;
+                margin-top: 10px !important;
+                margin: auto;
+            }
         </style>
         <!--
         <link rel="canonical" href="https://www.wrappixel.com/templates/elegant-admin-lite/" />
@@ -652,6 +658,9 @@
 
                                 $("#box-popup-left").css({"height": h - 220});
                                 $("#box-popup-right").css({"height": h - 220});
+
+                                $(".box-popup-left").css({"height": h - 220});
+                                $(".box-popup-right").css({"height": h - 220});
                             }
 
                             function saveWork() {
